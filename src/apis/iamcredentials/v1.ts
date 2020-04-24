@@ -175,7 +175,7 @@ export namespace iamcredentials_v1 {
      */
     keyId?: string | null;
     /**
-     * The signed blob.
+     * The signature for the blob. Does not include the original blob.
      */
     signedBlob?: string | null;
   }
@@ -185,7 +185,7 @@ export namespace iamcredentials_v1 {
      */
     delegates?: string[] | null;
     /**
-     * Required. The JWT payload to sign: a JSON object that contains a JWT Claims Set.
+     * Required. The JWT payload to sign. Must be a serialized JSON object that contains a JWT Claim Set. For example: `{&quot;sub&quot;: &quot;user@example.com&quot;, &quot;iat&quot;: 313435}`  If the claim set contains an `exp` claim, it must be an integer timestamp that is not in the past and at most 12 hours in the future.
      */
     payload?: string | null;
   }
@@ -195,7 +195,7 @@ export namespace iamcredentials_v1 {
      */
     keyId?: string | null;
     /**
-     * The signed JWT.
+     * The signed JWT. Contains the automatically generated header; the client-supplied payload; and the signature, which is generated using the key referenced by the `kid` field in the header.
      */
     signedJwt?: string | null;
   }

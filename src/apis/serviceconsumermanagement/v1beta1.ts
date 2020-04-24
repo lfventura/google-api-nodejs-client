@@ -1343,11 +1343,11 @@ export namespace serviceconsumermanagement_v1beta1 {
   /**
    * Response message for the `DisableConsumer` method. This response message is assigned to the `response` field of the returned Operation when that operation is done.
    */
-  export interface Schema$V1Beta1DisableConsumerResponse {}
+  export interface Schema$V1beta1DisableConsumerResponse {}
   /**
    * Response message for the `DisableConsumer` method. This response message is assigned to the `response` field of the returned Operation when that operation is done.
    */
-  export interface Schema$V1beta1DisableConsumerResponse {}
+  export interface Schema$V1Beta1DisableConsumerResponse {}
   /**
    * Response message for the `EnableConsumer` method. This response message is assigned to the `response` field of the returned Operation when that operation is done.
    */
@@ -1505,11 +1505,11 @@ export namespace serviceconsumermanagement_v1beta1 {
   /**
    * Response message for the `RefreshConsumer` method. This response message is assigned to the `response` field of the returned Operation when that operation is done.
    */
-  export interface Schema$V1beta1RefreshConsumerResponse {}
+  export interface Schema$V1Beta1RefreshConsumerResponse {}
   /**
    * Response message for the `RefreshConsumer` method. This response message is assigned to the `response` field of the returned Operation when that operation is done.
    */
-  export interface Schema$V1Beta1RefreshConsumerResponse {}
+  export interface Schema$V1beta1RefreshConsumerResponse {}
   /**
    * Response message for the `RemoveVisibilityLabels` method. This response message is assigned to the `response` field of the returned Operation when that operation is done.
    */

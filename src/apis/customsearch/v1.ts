@@ -187,13 +187,13 @@ export namespace customsearch_v1 {
      * Image belonging to a custom search result.
      */
     image?: {
+      thumbnailHeight?: number;
       thumbnailLink?: string;
       thumbnailWidth?: number;
       height?: number;
       byteSize?: number;
-      contextLink?: string;
       width?: number;
-      thumbnailHeight?: number;
+      contextLink?: string;
     } | null;
     /**
      * A unique identifier for the type of current object. For this API, it is `customsearch#result.`
@@ -203,9 +203,9 @@ export namespace customsearch_v1 {
      * Encapsulates all information about [refinement labels](https://developers.google.com/custom-search/docs/xml_results).
      */
     labels?: Array<{
+      label_with_op?: string;
       name?: string;
       displayName?: string;
-      label_with_op?: string;
     }> | null;
     /**
      * The full URL to which the search result is pointing, e.g. http://www.example.com/foo/bar.
@@ -253,9 +253,6 @@ export namespace customsearch_v1 {
      */
     queries?: {
       previousPage?: Array<{
-        cx?: string;
-        lowRange?: string;
-        inputEncoding?: string;
         imgDominantColor?: string;
         imgColorType?: string;
         safe?: string;
@@ -280,34 +277,20 @@ export namespace customsearch_v1 {
         highRange?: string;
         gl?: string;
         hl?: string;
-        imgSize?: string;
-        startPage?: number;
         cr?: string;
+        startPage?: number;
+        imgSize?: string;
         disableCnTwTranslation?: string;
         title?: string;
         orTerms?: string;
-        count?: number;
         dateRestrict?: string;
+        count?: number;
         rights?: string;
+        cx?: string;
+        lowRange?: string;
+        inputEncoding?: string;
       }>;
       request?: Array<{
-        imgColorType?: string;
-        imgDominantColor?: string;
-        language?: string;
-        safe?: string;
-        siteSearchFilter?: string;
-        outputEncoding?: string;
-        sort?: string;
-        linkSite?: string;
-        searchTerms?: string;
-        hq?: string;
-        searchType?: string;
-        fileType?: string;
-        googleHost?: string;
-        relatedSite?: string;
-        siteSearch?: string;
-        excludeTerms?: string;
-        exactTerms?: string;
         imgType?: string;
         totalResults?: string;
         filter?: string;
@@ -315,9 +298,9 @@ export namespace customsearch_v1 {
         highRange?: string;
         gl?: string;
         hl?: string;
-        imgSize?: string;
-        startPage?: number;
         cr?: string;
+        startPage?: number;
+        imgSize?: string;
         disableCnTwTranslation?: string;
         title?: string;
         orTerms?: string;
@@ -327,44 +310,61 @@ export namespace customsearch_v1 {
         cx?: string;
         lowRange?: string;
         inputEncoding?: string;
+        imgColorType?: string;
+        imgDominantColor?: string;
+        safe?: string;
+        language?: string;
+        siteSearchFilter?: string;
+        outputEncoding?: string;
+        sort?: string;
+        linkSite?: string;
+        searchTerms?: string;
+        hq?: string;
+        fileType?: string;
+        searchType?: string;
+        googleHost?: string;
+        relatedSite?: string;
+        siteSearch?: string;
+        excludeTerms?: string;
+        exactTerms?: string;
       }>;
       nextPage?: Array<{
+        cx?: string;
+        lowRange?: string;
+        inputEncoding?: string;
+        imgDominantColor?: string;
+        imgColorType?: string;
+        safe?: string;
+        language?: string;
+        siteSearchFilter?: string;
+        outputEncoding?: string;
+        sort?: string;
+        linkSite?: string;
         searchTerms?: string;
         hq?: string;
-        searchType?: string;
         fileType?: string;
+        searchType?: string;
         googleHost?: string;
         relatedSite?: string;
         siteSearch?: string;
         excludeTerms?: string;
         exactTerms?: string;
-        imgType?: string;
         totalResults?: string;
+        imgType?: string;
         filter?: string;
         startIndex?: number;
         highRange?: string;
         hl?: string;
         gl?: string;
-        cr?: string;
-        startPage?: number;
         imgSize?: string;
+        startPage?: number;
+        cr?: string;
         disableCnTwTranslation?: string;
         title?: string;
         orTerms?: string;
         count?: number;
         dateRestrict?: string;
         rights?: string;
-        cx?: string;
-        lowRange?: string;
-        inputEncoding?: string;
-        imgDominantColor?: string;
-        imgColorType?: string;
-        language?: string;
-        safe?: string;
-        siteSearchFilter?: string;
-        outputEncoding?: string;
-        sort?: string;
-        linkSite?: string;
       }>;
     } | null;
     /**
@@ -383,7 +383,7 @@ export namespace customsearch_v1 {
     /**
      * OpenSearch template and URL.
      */
-    url?: {template?: string; type?: string} | null;
+    url?: {type?: string; template?: string} | null;
   }
 
   export class Resource$Cse {

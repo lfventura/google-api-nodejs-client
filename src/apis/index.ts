@@ -31,6 +31,7 @@ import * as androiddeviceprovisioning from './androiddeviceprovisioning';
 import * as androidenterprise from './androidenterprise';
 import * as androidmanagement from './androidmanagement';
 import * as androidpublisher from './androidpublisher';
+import * as apigee from './apigee';
 import * as appengine from './appengine';
 import * as appsactivity from './appsactivity';
 import * as bigquery from './bigquery';
@@ -179,7 +180,6 @@ import * as vision from './vision';
 import * as webfonts from './webfonts';
 import * as webmasters from './webmasters';
 import * as websecurityscanner from './websecurityscanner';
-import * as youtube from './youtube';
 import * as youtubeAnalytics from './youtubeAnalytics';
 import * as youtubereporting from './youtubereporting';
 
@@ -207,6 +207,7 @@ export const APIS: APIList = {
   androidenterprise: androidenterprise.VERSIONS,
   androidmanagement: androidmanagement.VERSIONS,
   androidpublisher: androidpublisher.VERSIONS,
+  apigee: apigee.VERSIONS,
   appengine: appengine.VERSIONS,
   appsactivity: appsactivity.VERSIONS,
   bigquery: bigquery.VERSIONS,
@@ -355,7 +356,6 @@ export const APIS: APIList = {
   webfonts: webfonts.VERSIONS,
   webmasters: webmasters.VERSIONS,
   websecurityscanner: websecurityscanner.VERSIONS,
-  youtube: youtube.VERSIONS,
   youtubeAnalytics: youtubeAnalytics.VERSIONS,
   youtubereporting: youtubereporting.VERSIONS,
 };
@@ -380,6 +380,7 @@ export class GeneratedAPIs {
   androidenterprise = androidenterprise.androidenterprise;
   androidmanagement = androidmanagement.androidmanagement;
   androidpublisher = androidpublisher.androidpublisher;
+  apigee = apigee.apigee;
   appengine = appengine.appengine;
   appsactivity = appsactivity.appsactivity;
   bigquery = bigquery.bigquery;
@@ -529,7 +530,6 @@ export class GeneratedAPIs {
   webfonts = webfonts.webfonts;
   webmasters = webmasters.webmasters;
   websecurityscanner = websecurityscanner.websecurityscanner;
-  youtube = youtube.youtube;
   youtubeAnalytics = youtubeAnalytics.youtubeAnalytics;
   youtubereporting = youtubereporting.youtubereporting;
 }

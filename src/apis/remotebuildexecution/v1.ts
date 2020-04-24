@@ -685,6 +685,19 @@ export namespace remotebuildexecution_v1 {
     acceleratorType?: string | null;
   }
   /**
+   * Autoscale defines the autoscaling policy of a worker pool.
+   */
+  export interface Schema$GoogleDevtoolsRemotebuildexecutionAdminV1alphaAutoscale {
+    /**
+     * The maximal number of workers. Must be equal to or greater than min_size.
+     */
+    maxSize?: string | null;
+    /**
+     * The minimal number of workers. Must be greater than 0.
+     */
+    minSize?: string | null;
+  }
+  /**
    * The request used for `CreateInstance`.
    */
   export interface Schema$GoogleDevtoolsRemotebuildexecutionAdminV1alphaCreateInstanceRequest {
@@ -882,6 +895,10 @@ export namespace remotebuildexecution_v1 {
    * A worker pool resource in the Remote Build Execution API.
    */
   export interface Schema$GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool {
+    /**
+     * The autoscale policy to apply on a pool.
+     */
+    autoscale?: Schema$GoogleDevtoolsRemotebuildexecutionAdminV1alphaAutoscale;
     /**
      * WorkerPool resource name formatted as: `projects/[PROJECT_ID]/instances/[INSTANCE_ID]/workerpools/[POOL_ID]`. name should not be populated when creating a worker pool since it is provided in the `poolId` field.
      */

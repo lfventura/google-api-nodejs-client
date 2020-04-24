@@ -232,7 +232,7 @@ export namespace adsense_v1_4 {
     /**
      * The header information of the columns requested in the report. This is a list of headers; one for each dimension in the request, followed by one for each metric in the request.
      */
-    headers?: Array<{name?: string; type?: string; currency?: string}> | null;
+    headers?: Array<{type?: string; currency?: string; name?: string}> | null;
     /**
      * Kind this is, in this case adsense#report.
      */
@@ -263,11 +263,11 @@ export namespace adsense_v1_4 {
      * The colors which are included in the style. These are represented as six hexadecimal characters, similar to HTML color codes, but without the leading hash.
      */
     colors?: {
+      border?: string;
       text?: string;
       background?: string;
       url?: string;
       title?: string;
-      border?: string;
     } | null;
     /**
      * The style of the corners in the ad (deprecated: never populated, ignored).
@@ -413,10 +413,10 @@ export namespace adsense_v1_4 {
      * The targeting information of this custom channel, if activated.
      */
     targetingInfo?: {
-      adsAppearOn?: string;
-      description?: string;
       location?: string;
       siteLanguage?: string;
+      adsAppearOn?: string;
+      description?: string;
     } | null;
   }
   export interface Schema$CustomChannels {

@@ -246,10 +246,10 @@ export namespace blogger_v3 {
      * The author of this Comment.
      */
     author?: {
-      displayName?: string;
       url?: string;
       id?: string;
       image?: {url?: string};
+      displayName?: string;
     } | null;
     /**
      * Data about the blog containing this comment.
@@ -406,10 +406,10 @@ export namespace blogger_v3 {
      * The author of this Post.
      */
     author?: {
-      url?: string;
-      id?: string;
       image?: {url?: string};
       displayName?: string;
+      url?: string;
+      id?: string;
     } | null;
     /**
      * Data about the blog containing this Post.
@@ -447,10 +447,10 @@ export namespace blogger_v3 {
      * The location for geotagged posts.
      */
     location?: {
-      name?: string;
-      span?: string;
       lat?: number;
       lng?: number;
+      name?: string;
+      span?: string;
     } | null;
     /**
      * RFC 3339 date-time when this Post was published.
@@ -464,9 +464,9 @@ export namespace blogger_v3 {
      * The container of comments on this Post.
      */
     replies?: {
+      totalItems?: string;
       items?: Schema$Comment[];
       selfLink?: string;
-      totalItems?: string;
     } | null;
     /**
      * The API REST URL to fetch this resource from.

@@ -1,0 +1,76 @@
+// Copyright 2020 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/*! THIS FILE IS AUTO-GENERATED */
+
+const {google} = require('googleapis');
+const tasks = google.tasks('v1');
+
+/*
+ * Returns all tasks in the specified task list.
+ */
+
+async function main() {
+  // By default, this method will look for, in order:
+  // 1. An environment variable set to `GOOGLE_APPLICATION_CREDENTIALS`
+  //    pointing to a service account credential file
+  // 2. A GCE metadata server, present in Google Cloud products like
+  //    Compute Engine, Kubernetes Engine, Cloud Run, etc
+  // 3. A local OAuth token written by the Cloud SDK, obtained by running
+  //    `gcloud auth application-default login`.  This is preferred for local
+  //    development.
+  const auth = new google.auth.GoogleAuth({
+    // Scopes can be specified either as an array or as a single, space-delimited string.
+    scopes: [
+      'https://www.googleapis.com/auth/tasks',
+      'https://www.googleapis.com/auth/tasks.readonly',
+    ],
+  });
+
+  // Acquire an auth client, and bind it to all future calls
+  const authClient = await auth.getClient();
+  google.options('auth', authClient);
+
+  // Do the magic
+  const res = await tasks.tasks.list({
+    // Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by completion date.
+    completedMax: 'placeholder-value',
+    // Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by completion date.
+    completedMin: 'placeholder-value',
+    // Upper bound for a task's due date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by due date.
+    dueMax: 'placeholder-value',
+    // Lower bound for a task's due date (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by due date.
+    dueMin: 'placeholder-value',
+    // Maximum number of task lists returned on one page. Optional. The default is 20 (max allowed: 100).
+    maxResults: 'placeholder-value',
+    // Token specifying the result page to return. Optional.
+    pageToken: 'placeholder-value',
+    // Flag indicating whether completed tasks are returned in the result. Optional. The default is True.
+    showCompleted: 'placeholder-value',
+    // Flag indicating whether deleted tasks are returned in the result. Optional. The default is False.
+    showDeleted: 'placeholder-value',
+    // Flag indicating whether hidden tasks are returned in the result. Optional. The default is False.
+    showHidden: 'placeholder-value',
+    // Task list identifier.
+    tasklist: 'placeholder-value',
+    // Lower bound for a task's last modification time (as a RFC 3339 timestamp) to filter by. Optional. The default is not to filter by last modification time.
+    updatedMin: 'placeholder-value',
+  });
+  console.log(res.data);
+}
+
+main().catch(e => {
+  console.error(e);
+  throw e;
+});

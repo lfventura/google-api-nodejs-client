@@ -1,0 +1,61 @@
+// Copyright 2020 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+/*! THIS FILE IS AUTO-GENERATED */
+
+const {google} = require('googleapis');
+const games = google.games('v1');
+
+/*
+ * Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches that should be removed from the local cache will have a status of MATCH_DELETED.
+ */
+
+async function main() {
+  // By default, this method will look for, in order:
+  // 1. An environment variable set to `GOOGLE_APPLICATION_CREDENTIALS`
+  //    pointing to a service account credential file
+  // 2. A GCE metadata server, present in Google Cloud products like
+  //    Compute Engine, Kubernetes Engine, Cloud Run, etc
+  // 3. A local OAuth token written by the Cloud SDK, obtained by running
+  //    `gcloud auth application-default login`.  This is preferred for local
+  //    development.
+  const auth = new google.auth.GoogleAuth({
+    // Scopes can be specified either as an array or as a single, space-delimited string.
+    scopes: ['https://www.googleapis.com/auth/games'],
+  });
+
+  // Acquire an auth client, and bind it to all future calls
+  const authClient = await auth.getClient();
+  google.options('auth', authClient);
+
+  // Do the magic
+  const res = await games.turnBasedMatches.sync({
+    // True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request.
+    includeMatchData: 'placeholder-value',
+    // The preferred language to use for strings returned by this method.
+    language: 'placeholder-value',
+    // The maximum number of completed or canceled matches to return in the response. If not set, all matches returned could be completed or canceled.
+    maxCompletedMatches: 'placeholder-value',
+    // The maximum number of matches to return in the response, used for paging. For any response, the actual number of matches to return may be less than the specified maxResults.
+    maxResults: 'placeholder-value',
+    // The token returned by the previous request.
+    pageToken: 'placeholder-value',
+  });
+  console.log(res.data);
+}
+
+main().catch(e => {
+  console.error(e);
+  throw e;
+});

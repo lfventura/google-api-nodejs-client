@@ -217,7 +217,7 @@ export namespace cloudidentity_v1beta1 {
      */
     name?: string | null;
     /**
-     * The owner of the ClientState
+     * Output only. The owner of the ClientState
      */
     ownerType?: string | null;
     /**

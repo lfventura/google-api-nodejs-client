@@ -2087,7 +2087,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrderinvoicesCreateChargeInvoiceResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -2119,7 +2119,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrderinvoicesCreateRefundInvoiceResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -2623,7 +2623,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersAcknowledgeResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -2665,7 +2665,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersCancelLineItemResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -2689,7 +2689,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersCancelResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -2877,7 +2877,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersInStoreRefundLineItemResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -2924,7 +2924,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersRejectReturnLineItemResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -2968,7 +2968,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersReturnRefundLineItemResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -2993,7 +2993,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersSetLineItemMetadataResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -3021,7 +3021,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersShipLineItemsResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -3053,7 +3053,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersUpdateLineItemShippingDetailsResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -3073,7 +3073,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersUpdateMerchantOrderIdResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -3109,7 +3109,7 @@ export namespace content_v2_1 {
   }
   export interface Schema$OrdersUpdateShipmentResponse {
     /**
-     * The status of the execution.  Acceptable values are:   - &quot;duplicate&quot;  - &quot;executed&quot;
+     * The status of the execution.  Acceptable values are:   - &quot;`duplicate`&quot;  - &quot;`executed`&quot;
      */
     executionStatus?: string | null;
     /**
@@ -4718,7 +4718,7 @@ export namespace content_v2_1 {
     resources?: Schema$SettlementReport[];
   }
   /**
-   * Settlement transactions give a detailed breakdown of the  settlement report.
+   * Settlement transactions give a detailed breakdown of the  settlement report. (== resource_for v2.1.settlementtransactions ==)
    */
   export interface Schema$SettlementTransaction {
     /**
@@ -5293,8 +5293,8 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account whose website is claimed.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
-     * @param {boolean=} params.overwrite Only available to selected merchants. When set to True, this flag removes any existing claim on the requested website by another account and replaces it with a claim from this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
+     * @param {boolean=} params.overwrite Only available to selected merchants. When set to `True`, this flag removes any existing claim on the requested website by another account and replaces it with a claim from this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -5531,7 +5531,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -5674,7 +5674,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account that should be linked.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {().AccountsLinkRequest} params.requestBody Request body data
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
@@ -5828,7 +5828,7 @@ export namespace content_v2_1 {
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to list links.
      * @param {integer=} params.maxResults The maximum number of links to return in the response, used for pagination.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {string=} params.pageToken The token returned by the previous request.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
@@ -5911,7 +5911,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {().Account} params.requestBody Request body data
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
@@ -5995,11 +5995,11 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
     /**
-     * Only available to selected merchants. When set to True, this flag removes any existing claim on the requested website by another account and replaces it with a claim from this account.
+     * Only available to selected merchants. When set to `True`, this flag removes any existing claim on the requested website by another account and replaces it with a claim from this account.
      */
     overwrite?: boolean;
   }
@@ -6045,7 +6045,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -6076,7 +6076,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
 
@@ -6120,7 +6120,7 @@ export namespace content_v2_1 {
      */
     maxResults?: number;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
     /**
@@ -6139,7 +6139,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
 
@@ -6247,7 +6247,7 @@ export namespace content_v2_1 {
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account.
      * @param {string=} params.destinations If set, only issues for the specified destinations are returned, otherwise only issues for the Shopping destination.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -6425,7 +6425,7 @@ export namespace content_v2_1 {
      */
     destinations?: string[];
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -6551,7 +6551,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to get/update account tax settings.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -6701,7 +6701,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to get/update account tax settings.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {().AccountTax} params.requestBody Request body data
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
@@ -6792,7 +6792,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -6827,7 +6827,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
 
@@ -7893,7 +7893,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to get or update LIA settings.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -7966,7 +7966,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to retrieve accessible Google My Business accounts.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -8233,7 +8233,7 @@ export namespace content_v2_1 {
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which GMB access is requested.
      * @param {string} params.gmbEmail The email of the Google My Business account.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -8320,7 +8320,7 @@ export namespace content_v2_1 {
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account that manages the order. This cannot be a multi-client account.
      * @param {string} params.country The country for which inventory validation is requested.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -8423,7 +8423,7 @@ export namespace content_v2_1 {
      * @param {string} params.contactName The name of the inventory verification contact.
      * @param {string} params.country The country for which inventory verification is requested.
      * @param {string} params.language The language for which inventory verification is requested.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -8530,7 +8530,7 @@ export namespace content_v2_1 {
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to retrieve accessible Google My Business accounts.
      * @param {string} params.country The country for which the POS data provider is selected.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {string=} params.posDataProviderId The ID of POS data provider.
      * @param {string=} params.posExternalAccountId The account ID by which this merchant is known to the POS data provider.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
@@ -8624,7 +8624,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to get or update LIA settings.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {().LiaSettings} params.requestBody Request body data
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
@@ -8715,7 +8715,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -8731,7 +8731,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -8777,7 +8777,7 @@ export namespace content_v2_1 {
      */
     gmbEmail?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -8797,7 +8797,7 @@ export namespace content_v2_1 {
      */
     country?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -8829,7 +8829,7 @@ export namespace content_v2_1 {
      */
     language?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -8849,7 +8849,7 @@ export namespace content_v2_1 {
      */
     country?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
     /**
@@ -8873,7 +8873,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
 
@@ -9184,7 +9184,7 @@ export namespace content_v2_1 {
 
     /**
      * content.orderinvoices.createrefundinvoice
-     * @desc Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items that have previously been charged using createChargeInvoice. All amounts (except for the summary) are incremental with respect to the previous invoice.
+     * @desc Creates a refund invoice for one or more shipment groups, and triggers a refund for orderinvoice enabled orders. This can only be used for line items that have previously been charged using `createChargeInvoice`. All amounts (except for the summary) are incremental with respect to the previous invoice.
      * @alias content.orderinvoices.createrefundinvoice
      * @memberOf! ()
      *
@@ -9881,7 +9881,7 @@ export namespace content_v2_1 {
 
     /**
      * content.orders.advancetestorder
-     * @desc Sandbox only. Moves a test order from state "inProgress" to state "pendingShipment".
+     * @desc Sandbox only. Moves a test order from state "`inProgress`" to state "`pendingShipment`".
      * @alias content.orders.advancetestorder
      * @memberOf! ()
      *
@@ -10547,7 +10547,7 @@ export namespace content_v2_1 {
      * @memberOf! ()
      *
      * @param {object} params Parameters for request
-     * @param {string=} params.country The country of the template to retrieve. Defaults to US.
+     * @param {string=} params.country The country of the template to retrieve. Defaults to `US`.
      * @param {string} params.merchantId The ID of the account that should manage the order. This cannot be a multi-client account.
      * @param {string} params.templateName The name of the template to retrieve.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
@@ -10719,14 +10719,14 @@ export namespace content_v2_1 {
      * @memberOf! ()
      *
      * @param {object} params Parameters for request
-     * @param {boolean=} params.acknowledged Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged. We recommend using this filter set to false, in conjunction with the acknowledge call, such that only un-acknowledged orders are returned.
+     * @param {boolean=} params.acknowledged Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged. We recommend using this filter set to `false`, in conjunction with the `acknowledge` call, such that only un-acknowledged orders are returned.
      * @param {integer=} params.maxResults The maximum number of orders to return in the response, used for paging. The default value is 25 orders per page, and the maximum allowed value is 250 orders per page.
      * @param {string} params.merchantId The ID of the account that manages the order. This cannot be a multi-client account.
      * @param {string=} params.orderBy Order results by placement date in descending or ascending order.  Acceptable values are: - placedDateAsc - placedDateDesc
      * @param {string=} params.pageToken The token returned by the previous request.
      * @param {string=} params.placedDateEnd Obtains orders placed before this date (exclusively), in ISO 8601 format.
      * @param {string=} params.placedDateStart Obtains orders placed after this date (inclusively), in ISO 8601 format.
-     * @param {string=} params.statuses Obtains orders that match any of the specified statuses. Please note that active is a shortcut for pendingShipment and partiallyShipped, and completed is a shortcut for shipped, partiallyDelivered, delivered, partiallyReturned, returned, and canceled.
+     * @param {string=} params.statuses Obtains orders that match any of the specified statuses. Please note that `active` is a shortcut for `pendingShipment` and `partiallyShipped`, and `completed` is a shortcut for `shipped`, `partiallyDelivered`, `delivered`, `partiallyReturned`, `returned`, and `canceled`.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -11580,7 +11580,7 @@ export namespace content_v2_1 {
     auth?: string | OAuth2Client | JWT | Compute | UserRefreshClient;
 
     /**
-     * The country of the template to retrieve. Defaults to US.
+     * The country of the template to retrieve. Defaults to `US`.
      */
     country?: string;
     /**
@@ -11620,7 +11620,7 @@ export namespace content_v2_1 {
     auth?: string | OAuth2Client | JWT | Compute | UserRefreshClient;
 
     /**
-     * Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged. We recommend using this filter set to false, in conjunction with the acknowledge call, such that only un-acknowledged orders are returned.
+     * Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged. We recommend using this filter set to `false`, in conjunction with the `acknowledge` call, such that only un-acknowledged orders are returned.
      */
     acknowledged?: boolean;
     /**
@@ -11648,7 +11648,7 @@ export namespace content_v2_1 {
      */
     placedDateStart?: string;
     /**
-     * Obtains orders that match any of the specified statuses. Please note that active is a shortcut for pendingShipment and partiallyShipped, and completed is a shortcut for shipped, partiallyDelivered, delivered, partiallyReturned, returned, and canceled.
+     * Obtains orders that match any of the specified statuses. Please note that `active` is a shortcut for `pendingShipment` and `partiallyShipped`, and `completed` is a shortcut for `shipped`, `partiallyDelivered`, `delivered`, `partiallyReturned`, `returned`, and `canceled`.
      */
     statuses?: string[];
   }
@@ -15012,7 +15012,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to get/update shipping settings.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
      * @return {object} Request object
@@ -15464,7 +15464,7 @@ export namespace content_v2_1 {
      *
      * @param {object} params Parameters for request
      * @param {string} params.accountId The ID of the account for which to get/update shipping settings.
-     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * @param {string} params.merchantId The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      * @param {().ShippingSettings} params.requestBody Request body data
      * @param {object} [options] Optionally override request options, such as `url`, `method`, and `encoding`.
      * @param {callback} callback The callback that handles the response.
@@ -15557,7 +15557,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
   }
@@ -15629,7 +15629,7 @@ export namespace content_v2_1 {
      */
     accountId?: string;
     /**
-     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and accountId must be the ID of a sub-account of this account.
+     * The ID of the managing account. If this parameter is not the same as accountId, then this account must be a multi-client account and `accountId` must be the ID of a sub-account of this account.
      */
     merchantId?: string;
 

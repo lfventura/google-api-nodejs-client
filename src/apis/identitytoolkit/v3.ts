@@ -1139,10 +1139,10 @@ export namespace identitytoolkit_v3 {
      * The user&#39;s profiles at the associated IdPs.
      */
     providerUserInfo?: Array<{
+      photoUrl?: string;
       displayName?: string;
       federatedId?: string;
       providerId?: string;
-      photoUrl?: string;
     }> | null;
     /**
      * If idToken is STS id token, then this field will be refresh token.
@@ -1189,7 +1189,7 @@ export namespace identitytoolkit_v3 {
     /**
      * The error encountered while processing the account info.
      */
-    error?: Array<{message?: string; index?: number}> | null;
+    error?: Array<{index?: number; message?: string}> | null;
     /**
      * The fixed string &quot;identitytoolkit#UploadAccountResponse&quot;.
      */
