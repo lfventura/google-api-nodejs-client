@@ -19,7 +19,7 @@ const vision = google.vision('v1');
 
 /*
  * Permanently deletes a product and its reference images.
- *
+ * 
  * Metadata of the product and all its images will be deleted right away, but
  * search queries against ProductSets containing the product may still work
  * until all related caches are refreshed.
@@ -39,7 +39,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -48,8 +48,12 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.products.delete({
-    // Required. Resource name of product to delete.  Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`
-    name: 'projects/my-project/locations/my-location/products/[^/]+',
+             // Required. Resource name of product to delete.
+// 
+// Format is:
+// `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`    
+    name: 'projects/my-project/locations/my-location/products/my-product',
+                
   });
   console.log(res.data);
 }

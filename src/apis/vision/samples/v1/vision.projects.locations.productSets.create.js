@@ -19,9 +19,9 @@ const vision = google.vision('v1');
 
 /*
  * Creates and returns a new ProductSet resource.
- *
+ * 
  * Possible errors:
- *
+ * 
  * * Returns INVALID_ARGUMENT if display_name is missing, or is longer than
  *   4096 characters.
  */
@@ -40,7 +40,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -49,15 +49,21 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.productSets.create({
-    // Required. The project in which the ProductSet should be created.  Format is `projects/PROJECT_ID/locations/LOC_ID`.
+             // Required. The project in which the ProductSet should be created.
+// 
+// Format is `projects/PROJECT_ID/locations/LOC_ID`.    
     parent: 'projects/my-project/locations/my-location',
-    // A user-supplied resource id for this ProductSet. If set, the server will attempt to use this value as the resource id. If it is already in use, an error is returned with code ALREADY_EXISTS. Must be at most 128 characters long. It cannot contain the character `/`.
+         // A user-supplied resource id for this ProductSet. If set, the server will
+// attempt to use this value as the resource id. If it is already in use, an
+// error is returned with code ALREADY_EXISTS. Must be at most 128 characters
+// long. It cannot contain the character `/`.    
     productSetId: 'placeholder-value',
-
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

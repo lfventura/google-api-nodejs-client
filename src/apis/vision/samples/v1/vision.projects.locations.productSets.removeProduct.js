@@ -35,7 +35,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -44,13 +44,17 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.productSets.removeProduct({
-    // Required. The resource name for the ProductSet to modify.  Format is: `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-    name: 'projects/my-project/locations/my-location/productSets/[^/]+',
-
+             // Required. The resource name for the ProductSet to modify.
+// 
+// Format is:
+// `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`    
+    name: 'projects/my-project/locations/my-location/productSets/my-productSet',
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

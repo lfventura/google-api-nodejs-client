@@ -35,7 +35,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -44,13 +44,25 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.images.annotate({
-    // Optional. Target project and location to make a call.  Format: `projects/{project-id}/locations/{location-id}`.  If no parent is specified, a region will be chosen automatically.  Supported location-ids:     `us`: USA country only,     `asia`: East asia areas, like Japan, Taiwan,     `eu`: The European Union.  Example: `projects/project-A/locations/eu`.
+             // Optional. Target project and location to make a call.
+// 
+// Format: `projects/{project-id}/locations/{location-id}`.
+// 
+// If no parent is specified, a region will be chosen automatically.
+// 
+// Supported location-ids:
+//     `us`: USA country only,
+//     `asia`: East asia areas, like Japan, Taiwan,
+//     `eu`: The European Union.
+// 
+// Example: `projects/project-A/locations/eu`.    
     parent: 'projects/my-project',
-
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

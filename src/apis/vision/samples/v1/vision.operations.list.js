@@ -20,7 +20,7 @@ const vision = google.vision('v1');
 /*
  * Lists operations that match the specified filter in the request. If the
  * server doesn't support this method, it returns `UNIMPLEMENTED`.
- *
+ * 
  * NOTE: the `name` binding allows API services to override the binding
  * to use different resource name schemes, such as `users/x/operations`. To
  * override the binding, API services can add a binding such as
@@ -44,7 +44,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -53,14 +53,15 @@ async function main() {
 
   // Do the magic
   const res = await vision.operations.list({
-    // The standard list filter.
+             // The standard list filter.    
     filter: 'placeholder-value',
-    // The name of the operation's parent resource.
+         // The name of the operation's parent resource.    
     name: 'operations',
-    // The standard list page size.
+         // The standard list page size.    
     pageSize: 'placeholder-value',
-    // The standard list page token.
+         // The standard list page token.    
     pageToken: 'placeholder-value',
+                
   });
   console.log(res.data);
 }

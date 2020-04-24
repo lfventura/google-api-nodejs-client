@@ -37,7 +37,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -46,8 +46,9 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.operations.get({
-    // The name of the operation resource.
-    name: 'projects/my-project/operations/[^/]+',
+             // The name of the operation resource.    
+    name: 'projects/my-project/operations/my-operation',
+                
   });
   console.log(res.data);
 }

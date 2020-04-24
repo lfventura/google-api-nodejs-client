@@ -21,9 +21,9 @@ const vision = google.vision('v1');
  * Lists the Products in a ProductSet, in an unspecified order. If the
  * ProductSet does not exist, the products field of the response will be
  * empty.
- *
+ * 
  * Possible errors:
- *
+ * 
  * * Returns INVALID_ARGUMENT if page_size is greater than 100 or less than 1.
  */
 
@@ -41,7 +41,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -50,12 +50,16 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.productSets.products.list({
-    // Required. The ProductSet resource for which to retrieve Products.  Format is: `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-    name: 'projects/my-project/locations/my-location/productSets/[^/]+',
-    // The maximum number of items to return. Default 10, maximum 100.
+             // Required. The ProductSet resource for which to retrieve Products.
+// 
+// Format is:
+// `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`    
+    name: 'projects/my-project/locations/my-location/productSets/my-productSet',
+         // The maximum number of items to return. Default 10, maximum 100.    
     pageSize: 'placeholder-value',
-    // The next_page_token returned from a previous List request, if any.
+         // The next_page_token returned from a previous List request, if any.    
     pageToken: 'placeholder-value',
+                
   });
   console.log(res.data);
 }

@@ -20,7 +20,7 @@ const vision = google.vision('v1p1beta1');
 /*
  * Service that performs image detection and annotation for a batch of files.
  * Now only "application/pdf", "image/tiff" and "image/gif" are supported.
- *
+ * 
  * This service will extract at most 5 (customers can specify which 5 in
  * AnnotateFileRequest.pages) frames (gif) or pages (pdf or tiff) from each
  * file provided and perform detection and annotation for each image
@@ -41,7 +41,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -50,13 +50,25 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.files.annotate({
-    // Optional. Target project and location to make a call.  Format: `projects/{project-id}/locations/{location-id}`.  If no parent is specified, a region will be chosen automatically.  Supported location-ids:     `us`: USA country only,     `asia`: East asia areas, like Japan, Taiwan,     `eu`: The European Union.  Example: `projects/project-A/locations/eu`.
+             // Optional. Target project and location to make a call.
+// 
+// Format: `projects/{project-id}/locations/{location-id}`.
+// 
+// If no parent is specified, a region will be chosen automatically.
+// 
+// Supported location-ids:
+//     `us`: USA country only,
+//     `asia`: East asia areas, like Japan, Taiwan,
+//     `eu`: The European Union.
+// 
+// Example: `projects/project-A/locations/eu`.    
     parent: 'projects/my-project',
-
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

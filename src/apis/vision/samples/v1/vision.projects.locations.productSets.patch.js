@@ -20,9 +20,9 @@ const vision = google.vision('v1');
 /*
  * Makes changes to a ProductSet resource.
  * Only display_name can be updated currently.
- *
+ * 
  * Possible errors:
- *
+ * 
  * * Returns NOT_FOUND if the ProductSet does not exist.
  * * Returns INVALID_ARGUMENT if display_name is present in update_mask but
  *   missing from the request or longer than 4096 characters.
@@ -42,7 +42,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -51,15 +51,24 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.productSets.patch({
-    // The resource name of the ProductSet.  Format is: `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.  This field is ignored when creating a ProductSet.
-    name: 'projects/my-project/locations/my-location/productSets/[^/]+',
-    // The FieldMask that specifies which fields to update. If update_mask isn't specified, all mutable fields are to be updated. Valid mask path is `display_name`.
+             // The resource name of the ProductSet.
+// 
+// Format is:
+// `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
+// 
+// This field is ignored when creating a ProductSet.    
+    name: 'projects/my-project/locations/my-location/productSets/my-productSet',
+         // The FieldMask that specifies which fields to
+// update.
+// If update_mask isn't specified, all mutable fields are to be updated.
+// Valid mask path is `display_name`.    
     updateMask: 'placeholder-value',
-
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

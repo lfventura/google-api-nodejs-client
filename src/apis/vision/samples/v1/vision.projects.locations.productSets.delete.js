@@ -20,7 +20,7 @@ const vision = google.vision('v1');
 /*
  * Permanently deletes a ProductSet. Products and ReferenceImages in the
  * ProductSet are not deleted.
- *
+ * 
  * The actual image files are not deleted from Google Cloud Storage.
  */
 
@@ -38,7 +38,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -47,8 +47,12 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.productSets.delete({
-    // Required. Resource name of the ProductSet to delete.  Format is: `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-    name: 'projects/my-project/locations/my-location/productSets/[^/]+',
+             // Required. Resource name of the ProductSet to delete.
+// 
+// Format is:
+// `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`    
+    name: 'projects/my-project/locations/my-location/productSets/my-productSet',
+                
   });
   console.log(res.data);
 }

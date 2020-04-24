@@ -44,7 +44,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -53,13 +53,14 @@ async function main() {
 
   // Do the magic
   const res = await vision.operations.cancel({
-    // The name of the operation resource to be cancelled.
+             // The name of the operation resource to be cancelled.    
     name: 'operations/.*',
-
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

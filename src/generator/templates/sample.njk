@@ -48,7 +48,7 @@ async function main() {
   const res = await {{method.id}}({
     {% if method.parameters %}
     {% for pname, p in method.parameters|dictsort %}
-    {% if p.description %} // {{ p.description|oneLine|cleanComments|safe }}{% endif %}
+    {% if p.description %} // {{ p.description|cleanComments|safe|replace('\n', '\n// ') }}{% endif %}
     
     {{ pname|cleanPropertyName|safe }}: {% if p.pattern %}'{{ p.pattern|unRegex }}'{% else %}'placeholder-value'{% endif %},
     {% endfor %}

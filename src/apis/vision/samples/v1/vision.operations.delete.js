@@ -38,7 +38,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -47,8 +47,9 @@ async function main() {
 
   // Do the magic
   const res = await vision.operations.delete({
-    // The name of the operation resource to be deleted.
+             // The name of the operation resource to be deleted.    
     name: 'operations/.*',
+                
   });
   console.log(res.data);
 }

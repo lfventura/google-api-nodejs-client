@@ -19,9 +19,9 @@ const vision = google.vision('v1');
 
 /*
  * Gets information associated with a ReferenceImage.
- *
+ * 
  * Possible errors:
- *
+ * 
  * * Returns NOT_FOUND if the specified image does not exist.
  */
 
@@ -39,7 +39,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -48,9 +48,13 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.products.referenceImages.get({
-    // Required. The resource name of the ReferenceImage to get.  Format is:  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`.
-    name:
-      'projects/my-project/locations/my-location/products/[^/]+/referenceImages/[^/]+',
+             // Required. The resource name of the ReferenceImage to get.
+// 
+// Format is:
+// 
+// `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`.    
+    name: 'projects/my-project/locations/my-location/products/my-product/referenceImages/my-referenceImage',
+                
   });
   console.log(res.data);
 }

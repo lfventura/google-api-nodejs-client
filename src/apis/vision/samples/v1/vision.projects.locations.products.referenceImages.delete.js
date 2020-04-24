@@ -19,11 +19,11 @@ const vision = google.vision('v1');
 
 /*
  * Permanently deletes a reference image.
- *
+ * 
  * The image metadata will be deleted right away, but search queries
  * against ProductSets containing the image may still work until all related
  * caches are refreshed.
- *
+ * 
  * The actual image files are not deleted from Google Cloud Storage.
  */
 
@@ -41,7 +41,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -50,9 +50,13 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.products.referenceImages.delete({
-    // Required. The resource name of the reference image to delete.  Format is:  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`
-    name:
-      'projects/my-project/locations/my-location/products/[^/]+/referenceImages/[^/]+',
+             // Required. The resource name of the reference image to delete.
+// 
+// Format is:
+// 
+// `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`    
+    name: 'projects/my-project/locations/my-location/products/my-product/referenceImages/my-referenceImage',
+                
   });
   console.log(res.data);
 }

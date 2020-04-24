@@ -19,9 +19,9 @@ const vision = google.vision('v1');
 
 /*
  * Gets information associated with a ProductSet.
- *
+ * 
  * Possible errors:
- *
+ * 
  * * Returns NOT_FOUND if the ProductSet does not exist.
  */
 
@@ -39,7 +39,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -48,8 +48,12 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.productSets.get({
-    // Required. Resource name of the ProductSet to get.  Format is: `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`
-    name: 'projects/my-project/locations/my-location/productSets/[^/]+',
+             // Required. Resource name of the ProductSet to get.
+// 
+// Format is:
+// `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`    
+    name: 'projects/my-project/locations/my-location/productSets/my-productSet',
+                
   });
   console.log(res.data);
 }

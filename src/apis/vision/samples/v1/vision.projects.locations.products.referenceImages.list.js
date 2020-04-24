@@ -19,9 +19,9 @@ const vision = google.vision('v1');
 
 /*
  * Lists reference images.
- *
+ * 
  * Possible errors:
- *
+ * 
  * * Returns NOT_FOUND if the parent product does not exist.
  * * Returns INVALID_ARGUMENT if the page_size is greater than 100, or less
  *   than 1.
@@ -41,7 +41,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -50,12 +50,19 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.products.referenceImages.list({
-    // The maximum number of items to return. Default 10, maximum 100.
+             // The maximum number of items to return. Default 10, maximum 100.    
     pageSize: 'placeholder-value',
-    // A token identifying a page of results to be returned. This is the value of `nextPageToken` returned in a previous reference image list request.  Defaults to the first page if not specified.
+         // A token identifying a page of results to be returned. This is the value
+// of `nextPageToken` returned in a previous reference image list request.
+// 
+// Defaults to the first page if not specified.    
     pageToken: 'placeholder-value',
-    // Required. Resource name of the product containing the reference images.  Format is `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
-    parent: 'projects/my-project/locations/my-location/products/[^/]+',
+         // Required. Resource name of the product containing the reference images.
+// 
+// Format is
+// `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.    
+    parent: 'projects/my-project/locations/my-location/products/my-product',
+                
   });
   console.log(res.data);
 }

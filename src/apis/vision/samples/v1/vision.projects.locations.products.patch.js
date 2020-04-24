@@ -21,12 +21,12 @@ const vision = google.vision('v1');
  * Makes changes to a Product resource.
  * Only the `display_name`, `description`, and `labels` fields can be updated
  * right now.
- *
+ * 
  * If labels are updated, the change will not be reflected in queries until
  * the next index time.
- *
+ * 
  * Possible errors:
- *
+ * 
  * * Returns NOT_FOUND if the Product does not exist.
  * * Returns INVALID_ARGUMENT if display_name is present in update_mask but is
  *   missing from the request or longer than 4096 characters.
@@ -49,7 +49,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -58,15 +58,25 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.products.patch({
-    // The resource name of the product.  Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.  This field is ignored when creating a product.
-    name: 'projects/my-project/locations/my-location/products/[^/]+',
-    // The FieldMask that specifies which fields to update. If update_mask isn't specified, all mutable fields are to be updated. Valid mask paths include `product_labels`, `display_name`, and `description`.
+             // The resource name of the product.
+// 
+// Format is:
+// `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
+// 
+// This field is ignored when creating a product.    
+    name: 'projects/my-project/locations/my-location/products/my-product',
+         // The FieldMask that specifies which fields
+// to update.
+// If update_mask isn't specified, all mutable fields are to be updated.
+// Valid mask paths include `product_labels`, `display_name`, and
+// `description`.    
     updateMask: 'placeholder-value',
-
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

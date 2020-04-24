@@ -87,11 +87,7 @@ function unRegex(regex: string): string {
     pattern = pattern.slice(0, pattern.length - 1);
   }
   // replace projects placeholders
-  pattern = pattern.replace('projects/[^/]+', 'projects/my-project');
-  pattern = pattern.replace('locations/[^/]+', 'locations/my-location');
-  // TODO: This should be replaced with a proper regular express
-  // that does a look behind to find the name to be replaced.  Alex
-  // will probably know how to do it.
+  pattern = pattern.replace(/\^?(\w+)s\/\[\^\/\]\+\$?/g, '$1s/my-$1');
   return pattern;
 }
 
@@ -448,12 +444,12 @@ export class Generator {
   private async generate(apiDiscoveryUrl: string, schema: Schema) {
     this.logResult(apiDiscoveryUrl, `Discovery doc request complete.`);
     const tasks = new Array<() => Promise<void>>();
-    this.getFragmentsForSchema(
-      apiDiscoveryUrl,
-      schema,
-      `${FRAGMENT_URL}${schema.name}/${schema.version}/0/${schema.name}`,
-      tasks
-    );
+    // this.getFragmentsForSchema(
+    //   apiDiscoveryUrl,
+    //   schema,
+    //   `${FRAGMENT_URL}${schema.name}/${schema.version}/0/${schema.name}`,
+    //   tasks
+    // );
 
     // e.g. apis/drive
     const apiPath = path.join(srcPath, 'apis', schema.name);

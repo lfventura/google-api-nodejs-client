@@ -20,12 +20,12 @@ const vision = google.vision('v1');
 /*
  * Asynchronous API that imports a list of reference images to specified
  * product sets based on a list of image information.
- *
+ * 
  * The google.longrunning.Operation API can be used to keep track of the
  * progress and results of the request.
  * `Operation.metadata` contains `BatchOperationMetadata`. (progress)
  * `Operation.response` contains `ImportProductSetsResponse`. (results)
- *
+ * 
  * The input source of this method is a csv file on Google Cloud Storage.
  * For the format of the csv file please see
  * ImportProductSetsGcsSource.csv_file_uri.
@@ -45,7 +45,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -54,13 +54,16 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.productSets.import({
-    // Required. The project in which the ProductSets should be imported.  Format is `projects/PROJECT_ID/locations/LOC_ID`.
+             // Required. The project in which the ProductSets should be imported.
+// 
+// Format is `projects/PROJECT_ID/locations/LOC_ID`.    
     parent: 'projects/my-project/locations/my-location',
-
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

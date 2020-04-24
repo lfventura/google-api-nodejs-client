@@ -19,12 +19,12 @@ const vision = google.vision('v1');
 
 /*
  * Run asynchronous image detection and annotation for a list of images.
- *
+ * 
  * Progress and results can be retrieved through the
  * `google.longrunning.Operations` interface.
  * `Operation.metadata` contains `OperationMetadata` (metadata).
  * `Operation.response` contains `AsyncBatchAnnotateImagesResponse` (results).
- *
+ * 
  * This service will write image annotation outputs to json files in customer
  * GCS bucket, each json file containing BatchAnnotateImagesResponse proto.
  */
@@ -43,7 +43,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -52,10 +52,12 @@ async function main() {
 
   // Do the magic
   const res = await vision.images.asyncBatchAnnotate({
+                
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }

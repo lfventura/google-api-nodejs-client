@@ -19,18 +19,18 @@ const vision = google.vision('v1');
 
 /*
  * Creates and returns a new ReferenceImage resource.
- *
+ * 
  * The `bounding_poly` field is optional. If `bounding_poly` is not specified,
  * the system will try to detect regions of interest in the image that are
  * compatible with the product_category on the parent product. If it is
  * specified, detection is ALWAYS skipped. The system converts polygons into
  * non-rotated rectangles.
- *
+ * 
  * Note that the pipeline will resize the image if the image resolution is too
  * large to process (above 50MP).
- *
+ * 
  * Possible errors:
- *
+ * 
  * * Returns INVALID_ARGUMENT if the image_uri is missing or longer than 4096
  *   characters.
  * * Returns INVALID_ARGUMENT if the product does not exist.
@@ -53,7 +53,7 @@ async function main() {
     scopes: [
       'https://www.googleapis.com/auth/cloud-platform',
       'https://www.googleapis.com/auth/cloud-vision',
-    ],
+          ],
   });
 
   // Acquire an auth client, and bind it to all future calls
@@ -62,15 +62,22 @@ async function main() {
 
   // Do the magic
   const res = await vision.projects.locations.products.referenceImages.create({
-    // Required. Resource name of the product in which to create the reference image.  Format is `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
-    parent: 'projects/my-project/locations/my-location/products/[^/]+',
-    // A user-supplied resource id for the ReferenceImage to be added. If set, the server will attempt to use this value as the resource id. If it is already in use, an error is returned with code ALREADY_EXISTS. Must be at most 128 characters long. It cannot contain the character `/`.
+             // Required. Resource name of the product in which to create the reference image.
+// 
+// Format is
+// `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.    
+    parent: 'projects/my-project/locations/my-location/products/my-product',
+         // A user-supplied resource id for the ReferenceImage to be added. If set,
+// the server will attempt to use this value as the resource id. If it is
+// already in use, an error is returned with code ALREADY_EXISTS. Must be at
+// most 128 characters long. It cannot contain the character `/`.    
     referenceImageId: 'placeholder-value',
-
+            
     // Request body metadata
     requestBody: {
       // request body parameters
     },
+        
   });
   console.log(res.data);
 }
