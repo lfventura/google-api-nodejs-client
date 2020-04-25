@@ -1,10 +1,9 @@
 // Copyright 2020 Google LLC
-//
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-//      http://www.apache.org/licenses/LICENSE-2.0
+//    http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,25 +13,28 @@
 
 /*! THIS FILE IS AUTO-GENERATED */
 
-const {google} = require('googleapis');
-const vision = google.vision('v1');
-
 /*
+ * vision.projects.locations.products.referenceImages.get
  * Gets information associated with a ReferenceImage.
  * 
  * Possible errors:
  * 
  * * Returns NOT_FOUND if the specified image does not exist.
+ * Before running the sample, please make sure to run:
+ *   $ npm install googleapis
  */
+
+const {google} = require('googleapis');
+const vision = google.vision('v1');
 
 async function main() {
   // By default, this method will look for, in order:
   // 1. An environment variable set to `GOOGLE_APPLICATION_CREDENTIALS`
-  //    pointing to a service account credential file
+  //    pointing to a service account credential file.
   // 2. A GCE metadata server, present in Google Cloud products like
-  //    Compute Engine, Kubernetes Engine, Cloud Run, etc
+  //    Compute Engine, Kubernetes Engine, Cloud Run, etc.
   // 3. A local OAuth token written by the Cloud SDK, obtained by running
-  //    `gcloud auth application-default login`.  This is preferred for local
+  //    `gcloud auth application-default login`. This is preferred for local
   //    development.
   const auth = new google.auth.GoogleAuth({
     // Scopes can be specified either as an array or as a single, space-delimited string.
@@ -57,7 +59,14 @@ async function main() {
                 
   });
   console.log(res.data);
-}
+
+    // Example response
+  // {
+  //   "boundingPolys": [],
+  //   "name": "my_name",
+  //   "uri": "my_uri"
+  // }
+  }
 
 main().catch(e => {
   console.error(e);

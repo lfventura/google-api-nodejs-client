@@ -15,15 +15,14 @@ import {promises as fs} from 'fs';
 import {GaxiosOptions, Headers} from 'gaxios';
 import {DefaultTransporter} from 'google-auth-library';
 import {
-  FragmentResponse,
   Schema,
   SchemaItem,
   SchemaMethod,
   SchemaParameters,
-  SchemaResource,
   Schemas,
   SchemaMethods,
   SchemaResources,
+  SchemaItems,
 } from 'googleapis-common';
 import * as mkdirp from 'mkdirp';
 import * as nunjucks from 'nunjucks';
@@ -32,9 +31,6 @@ import * as url from 'url';
 import * as util from 'util';
 // there is a typings issue with p-queue and TypeScript 3.6.4.
 const {default: Q} = require('p-queue');
-
-const FRAGMENT_URL =
-  'https://storage.googleapis.com/apisnippets-staging/public/';
 
 const srcPath = path.join(__dirname, '../../../src');
 const TEMPLATES_DIR = path.join(srcPath, 'generator/templates');
@@ -276,6 +272,7 @@ export class Generator {
               `GenerateAPI call failed with error: ${e}, moving on.`
             );
             console.error(`Failed to generate API: ${api.id}`);
+            console.error(e);
             console.log(
               api.id +
                 '\n-----------\n' +
@@ -357,71 +354,6 @@ export class Generator {
   }
 
   /**
-   * Given a discovery doc, parse it and recursively iterate over the various
-   * embedded links.
-   */
-  private getFragmentsForSchema(
-    apiDiscoveryUrl: string,
-    schema: SchemaResource,
-    apiPath: string,
-    tasks: Array<() => Promise<void>>
-  ) {
-    if (schema.methods) {
-      for (const methodName in schema.methods) {
-        if (schema.methods.hasOwnProperty(methodName)) {
-          const methodSchema = schema.methods[methodName];
-          methodSchema.sampleUrl = apiPath + '.' + methodName + '.frag.json';
-          tasks.push(async () => {
-            this.logResult(apiDiscoveryUrl, `Making fragment request...`);
-            this.logResult(apiDiscoveryUrl, methodSchema.sampleUrl);
-            try {
-              const res = await this.request<FragmentResponse>({
-                url: methodSchema.sampleUrl,
-              });
-              this.logResult(apiDiscoveryUrl, `Fragment request complete.`);
-              if (
-                res.data &&
-                res.data.codeFragment &&
-                res.data.codeFragment['Node.js']
-              ) {
-                let fragment = res.data.codeFragment['Node.js'].fragment;
-                fragment = fragment.replace(/\/\*/gi, '/<');
-                fragment = fragment.replace(/\*\//gi, '>/');
-                fragment = fragment.replace(/`\*/gi, '`<');
-                fragment = fragment.replace(/\*`/gi, '>`');
-                const lines = fragment.split('\n');
-                lines.forEach((line: string, i: number) => {
-                  lines[i] = '*' + (line ? ' ' + lines[i] : '');
-                });
-                fragment = lines.join('\n');
-                methodSchema.fragment = fragment;
-              }
-            } catch (err) {
-              this.logResult(apiDiscoveryUrl, `Fragment request err: ${err}`);
-              if (!err.message || err.message.indexOf('AccessDenied') === -1) {
-                throw err;
-              }
-              this.logResult(apiDiscoveryUrl, 'Ignoring error.');
-            }
-          });
-        }
-      }
-    }
-    if (schema.resources) {
-      for (const resourceName in schema.resources) {
-        if (schema.resources.hasOwnProperty(resourceName)) {
-          this.getFragmentsForSchema(
-            apiDiscoveryUrl,
-            schema.resources[resourceName],
-            apiPath + '.' + resourceName,
-            tasks
-          );
-        }
-      }
-    }
-  }
-
-  /**
    * Generate API file given discovery URL
    * @param apiDiscoveryUri URL or filename of discovery doc for API
    */
@@ -444,12 +376,6 @@ export class Generator {
   private async generate(apiDiscoveryUrl: string, schema: Schema) {
     this.logResult(apiDiscoveryUrl, `Discovery doc request complete.`);
     const tasks = new Array<() => Promise<void>>();
-    // this.getFragmentsForSchema(
-    //   apiDiscoveryUrl,
-    //   schema,
-    //   `${FRAGMENT_URL}${schema.name}/${schema.version}/0/${schema.name}`,
-    //   tasks
-    // );
 
     // e.g. apis/drive
     const apiPath = path.join(srcPath, 'apis', schema.name);
@@ -473,14 +399,57 @@ export class Generator {
     getAllMethods(schema, methods);
     for (const method of methods) {
       const samplePath = path.join(samplesPath, `${method.id}.js`);
+      let responseExample: undefined|{};
+      if (method.response) {
+        const item = schema.schemas[method.response.$ref!];
+        responseExample = flattenSchema(item, schema.schemas);
+      }
+      let requestExample: {}|undefined;
+      if (method.request) {
+        const item = schema.schemas[method.request.$ref!];
+        requestExample = flattenSchema(item, schema.schemas);
+      }
       const sampleResult = this.env.render('sample.njk', {
         api: schema,
         method,
+        responseExample,
+        requestExample,
       });
       await fs.writeFile(samplePath, sampleResult);
     }
-
     return exportFilename;
+  }
+}
+
+/**
+ * Provide a flattened representation of what the structure for a 
+ * given request or response could look like.  
+ */
+function flattenSchema(item: SchemaItem, schemas: SchemaItems) {
+  // tslint:disable-next-line no-any
+  const result: any = {};
+  if (item.properties) {
+    for (const [name, details] of Object.entries(item.properties)) {
+      result[name] = getExamplePropertyValue(name, details, schemas);
+    }
+  }
+  return result;
+}
+
+function getExamplePropertyValue(name: string, details: SchemaItem, schemas: SchemaItems): {} {
+  switch (details.type) {
+    case 'string':
+      return `my_${name}`;
+    case 'boolean':
+      return false;
+    case 'object':
+      return {};
+    case 'integer':
+      return 0;
+    case 'array':
+      return [];
+    default: 
+      return {};
   }
 }
 
